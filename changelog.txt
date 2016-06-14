@@ -1,0 +1,27 @@
+Changelog for factorio update/start script by PhyRo (phyro@t4d.se)
+    I am not a coding genuis, i'm sure someone will do this better then me,
+    but i wanted to do this, so i did :)
+    Code may contain bugs and spelling errors, changelog may not be updated whith everything i've changed/fixed (i forget stuff)
+    Various gramatical and spelling errors.
+    No actual cake was hurt during the making of this script. enjoy
+
+    awk is needed ( apt-get install awk )
+    tar is needed ( apt-get install tar ) 
+    wget is needed ( apt-get inst... you get the idea now, right ? )
+    
+
+v.0.0.1
+    +Just starting factorio with latest save
+
+v.0.0.2
+    +Updating factorio, getting version number from webpage (factorio_updater.sh)
+
+v.0.0.3
+    *changed the way the script starts factorio (start_factorio.sh)
+    *After factorio has been updated the script starts factorio (factorio_updater.sh & start_factorio.sh)
+    +Added script update script part (factorio.sh)
+
+v.0.0.4
+    +Added returnvalue from factorio_updater script, to see if process is runnig or not.
+        If factorio crashed, it restarts factorio if it finds no update otherwise update and restart.
+
