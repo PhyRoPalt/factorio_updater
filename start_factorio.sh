@@ -1,0 +1,30 @@
+#!/bin/bash
+install_dir=$1
+temp_dir=$2
+script_path=$3
+save_dir=$1"/saves"
+proc_path=$1"/bin/x64/factorio"
+./factorio_updater.sh $1 $2 $3
+retvalue=$?
+
+function StartFactorio {
+    savefile1=`ls -ltr $save_dir | grep _autosave | grep -v grep | awk '{print $9}'`
+    savefile=`echo $savefile1 | awk '{print $1}'`
+    echo "Starting Factorio with savegame "$savefile
+        $proc_path --start-server $savefile
+}
+
+if [ $retvalue = 0 ] 
+then
+echo "Update finished, starting factorio headless."
+StartFactorio
+
+else
+    if [ $retvalue = -1 ] ; then echo "Updater/installation failed, not starting factorio. Manual update may be required."; fi
+    if [ $retvalue = 1 ]; then echo "No update required, factorio is up and running."; fi
+    if [ $retvalue = 2 ]; then echo "No update required, factorio is NOT up and running. Trying to start Factorio headless"; StartFactorio; fi
+    #if [ $revalue = 3 ] then; echo "Updater/installation failed, not starting factorio. Manual update may be required." ;fi
+    #if [ $revalue = 4 ] then; echo "Updater/installation failed, not starting factorio. Manual update may be required." ;fi
+    #if [ $revalue = 5 ] then; echo "Updater/installation failed, not starting factorio. Manual update may be required." ;fi
+
+fi
