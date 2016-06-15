@@ -11,7 +11,7 @@ version=$(cat $versionfile)
 ## https://docs.google.com/uc?authuser=0&id=0B0_cNnjnIOmoaVhsWkszM0t1QUk&export=download  start_factorio.sh Outdated
 ## https://docs.google.com/uc?authuser=0&id=0B0_cNnjnIOmod3ZIWWd2V2VmVEE&export=download  factorio_updater.sh Outdated
 echo "Checking script-version online : "$got_version
-if [ $version != $got_version ] 
+if [ $version != $got_version ] || [ $branch = "dev" ]
         then 
         echo "Updating script.."
         update=1
