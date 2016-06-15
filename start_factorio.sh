@@ -3,6 +3,13 @@ install_dir=$1
 temp_dir=$2
 script_path=$3
 update=$4
+branch=$5
+
+if [ -z $install_dir ]; then echo "Install_dir not set. exiting"; exit -1;fi
+if [ -z $temp_dir ]; then echo "temp_dir not set. exiting"; exit -1;fi
+if [ -z $script_path ]; then echo "script_path not set. exiting"; exit -1;fi
+if [ -z $branch ]; then branch="master";fi
+
 save_dir=$1"/saves"
 proc_path=$1"/bin/x64/factorio"
 ./factorio_updater.sh $1 $2 $3
