@@ -22,7 +22,7 @@ function StartFactorio {
         $proc_path --start-server $savefile
 }
 if [ -z $update ]; then update=1; fi
-if [ $update = 1 ]; then wget --no-check-certificate -qO $script_path"/factorio.sh" "https://raw.githubusercontent.com/PhyRoPalt/factorio_updater/master/factorio.sh"; fi
+if [ $update = 1 ]; then wget --no-check-certificate -qO $script_path"/factorio.sh" "https://raw.githubusercontent.com/PhyRoPalt/factorio_updater/$branch/factorio.sh"; fi
 
 if [ $retvalue = 0 ] 
 then
