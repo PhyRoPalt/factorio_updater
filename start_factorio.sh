@@ -11,7 +11,8 @@ if [ -z $script_path ]; then echo "script_path not set. exiting"; exit -1;fi
 if [ -z $branch ]; then branch="master";fi
 
 save_dir=$1"/saves"
-proc_path="screen -S factorio_screen -X screen" $1"/bin/x64/factorio"
+proc_path=$1"/bin/x64/factorio"
+echo "proc_path ="$proc_path
 ./factorio_updater.sh $1 $2 $3
 retvalue=$?
 
@@ -19,7 +20,7 @@ function StartFactorio {
     savefile1=`ls -ltr $save_dir | grep _autosave | grep -v grep | awk '{print $9}'`
     savefile=`echo $savefile1 | awk '{print $1}'`
     echo "Starting Factorio with savegame "$savefile
-        $proc_path --start-server $savefile
+        screen -S factorio_screen -X screen $proc_path --start-server $savefile
 }
 if [ -z $update ]; then update=1; fi
 if [ $update = 1 ]; then wget --no-check-certificate -qO $script_path"/factorio.sh" "https://raw.githubusercontent.com/PhyRoPalt/factorio_updater/$branch/factorio.sh"; fi
