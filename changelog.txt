@@ -27,4 +27,12 @@ v.0.0.5
     *Moved script from google drive to github
     *Updated script update part (factorio.sh, start_factorio.sh)
     
+v.0.0.6 
+    +added dev branch
+    *updated factorio.sh & start_factorio.sh, now able to use dev branch
+    *added checks for missing paths script(start_factorio.sh) exiting if install_path, temp_dir or script path is not set in factorio.sh
+        Forgot to make that update in factorio.sh...duuh
+    Also forgot to update changelog.txt .. so tired ..
 
+v.0.0.7
+    
