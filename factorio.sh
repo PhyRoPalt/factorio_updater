@@ -14,9 +14,9 @@ if [ $version != $got_version ]
         echo "Updating script.."
         update=1
         wget --no-check-certificate -qO $script_path"/start_factorio.sh" "https://raw.githubusercontent.com/PhyRoPalt/factorio_updater/master/start_factorio.sh"
-        wget --no-check-certificate -qO $script_path"/factorio_updater.sh" "https://github.com/PhyRoPalt/factorio_updater/blob/master/factorio_updater.sh"
-        wget --no-check-certificate -qO $script_path"/factorio_updater.sh" "https://github.com/PhyRoPalt/factorio_updater/blob/master/factorio_updater.sh"
-        wget --no-check-certificate -qO $script_path"/changelog.txt" "https://github.com/PhyRoPalt/factorio_updater/blob/master/changelog.txt"
+        wget --no-check-certificate -qO $script_path"/factorio_updater.sh" "https://raw.githubusercontent.com/PhyRoPalt/factorio_updater/master/factorio_updater.sh"
+        wget --no-check-certificate -qO $script_path"/READ.me" "https://raw.githubusercontent.com/PhyRoPalt/factorio_updater/master/READ.me"
+        wget --no-check-certificate -qO $script_path"/changelog.txt" "https://raw.githubusercontent.com/PhyRoPalt/factorio_updater/master/changelog.txt"
         chmod +x *factorio*
         echo $got_version > $versionfile
 fi
