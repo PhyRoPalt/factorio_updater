@@ -2,6 +2,7 @@
 install_dir=$1
 temp_dir=$2
 script_path=$3
+update=$4
 save_dir=$1"/saves"
 proc_path=$1"/bin/x64/factorio"
 ./factorio_updater.sh $1 $2 $3
@@ -14,7 +15,7 @@ function StartFactorio {
         $proc_path --start-server $savefile
 }
 
-if [ $4 = 1 ]; then         wget --no-check-certificate -qO $script_path"/factorio.sh" "https://raw.githubusercontent.com/PhyRoPalt/factorio_updater/master/factorio.sh"; fi
+if [ $update = 1 ]; then wget --no-check-certificate -qO $script_path"/factorio.sh" "https://raw.githubusercontent.com/PhyRoPalt/factorio_updater/master/factorio.sh"; fi
 
 if [ $retvalue = 0 ] 
 then
