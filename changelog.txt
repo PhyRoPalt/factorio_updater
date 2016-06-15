@@ -26,7 +26,7 @@ v.0.0.5
     *Updated script update part (factorio.sh, start_factorio.sh)
     
 v.0.0.6 
-    +added dev branch
+    +added dev branch (if you are using dev branch, the script will update itself EVERY time it runs, so dont use it with crontab)
     *updated factorio.sh & start_factorio.sh, now able to use dev branch
     *added checks for missing paths script(start_factorio.sh) exiting if install_path, temp_dir or script path is not set in factorio.sh
         Forgot to make that update in factorio.sh...duuh
