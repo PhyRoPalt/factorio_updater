@@ -5,9 +5,7 @@ Changelog for factorio update/start script by PhyRo (phyro@t4d.se)
     Various gramatical and spelling errors.
     No actual cake was hurt during the making of this script. enjoy
 
-    awk is needed ( apt-get install awk )
-    tar is needed ( apt-get install tar ) 
-    
+    script uses : screen, tar, awk
 
 v.0.0.1
     +Just starting factorio with latest save
@@ -35,4 +33,4 @@ v.0.0.6
     Also forgot to update changelog.txt .. so tired ..
 
 v.0.0.7
-    
+    +Starting factorio to screen (factorio_screen)
