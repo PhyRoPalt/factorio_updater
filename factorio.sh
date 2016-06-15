@@ -4,7 +4,7 @@ temp_dir=/home/steam/temp
 script_path=/home/steam/factorio_updater
 update=0
 ## Branch "dev" or "master"
-branch="dev"
+branch="master"
 versionfile=$script_path"/version.txt"
 got_version=$(wget --no-check-certificate -qO - "https://raw.githubusercontent.com/PhyRoPalt/factorio_updater/$branch/version.txt")
 version=$(cat $versionfile)
