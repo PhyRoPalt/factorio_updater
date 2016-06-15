@@ -24,4 +24,8 @@ v.0.0.3
 v.0.0.4
     +Added returnvalue from factorio_updater script, to see if process is runnig or not.
         If factorio crashed, it restarts factorio if it finds no update otherwise update and restart.
+v.0.0.5
+    *Moved script from google drive to github
+    *Updated script update part (factorio.sh, start_factorio.sh)
+    
 
