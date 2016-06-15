@@ -7,7 +7,6 @@ Changelog for factorio update/start script by PhyRo (phyro@t4d.se)
 
     awk is needed ( apt-get install awk )
     tar is needed ( apt-get install tar ) 
-    wget is needed ( apt-get inst... you get the idea now, right ? )
     
 
 v.0.0.1
