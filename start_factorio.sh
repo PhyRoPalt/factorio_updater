@@ -12,7 +12,6 @@ if [ -z $branch ]; then branch="master";fi
 
 save_dir=$1"/saves"
 proc_path=$1"/bin/x64/factorio"
-echo "proc_path ="$proc_path
 ./factorio_updater.sh $1 $2 $3
 retvalue=$?
 
