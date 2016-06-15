@@ -8,6 +8,7 @@ branch="dev"
 versionfile=$script_path"/version.txt"
 got_version=$(wget --no-check-certificate -qO - "https://raw.githubusercontent.com/PhyRoPalt/factorio_updater/$branch/version.txt")
 version=$(cat $versionfile)
+if [ $branch = "dev" ]; then echo "Using Dev branch, will force update update.";fi 
 ## https://docs.google.com/uc?authuser=0&id=0B0_cNnjnIOmoaVhsWkszM0t1QUk&export=download  start_factorio.sh Outdated
 ## https://docs.google.com/uc?authuser=0&id=0B0_cNnjnIOmod3ZIWWd2V2VmVEE&export=download  factorio_updater.sh Outdated
 echo "Checking script-version online : "$got_version
