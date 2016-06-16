@@ -19,7 +19,7 @@ function StartFactorio {
     savefile1=`ls -ltr $save_dir | grep _autosave | grep -v grep | awk '{print $9}'`
     savefile=`echo $savefile1 | awk '{print $1}'`
     echo "Starting Factorio with savegame "$savefile
-        screen -S factorio_screen -X screen $proc_path --start-server $savefile
+        screen -S factorio_screen -X factorio_screen $proc_path --start-server $savefile
 }
 if [ -z $update ]; then update=1; fi
 if [ $update = 1 ]; then wget --no-check-certificate -qO $script_path"/factorio.sh" "https://raw.githubusercontent.com/PhyRoPalt/factorio_updater/$branch/factorio.sh"; fi
