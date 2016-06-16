@@ -3,9 +3,6 @@ install_dir=$1
 temp_dir=$2
 script_path=$3
 
-##install_dir=/home/steam/factorio
-##temp_dir=/home/steam/temp
-##script_path=/home/steam/factorio_script
 ######### DO NOT CHANGE ANYTHING BELOW THIS LINE  #########
 versionfile=$install_dir"/version.txt"
 ftemp=$temp_dir"/ftemp"
