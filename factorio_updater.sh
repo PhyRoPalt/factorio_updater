@@ -6,7 +6,7 @@ script_path=$3
 ######### DO NOT CHANGE ANYTHING BELOW THIS LINE  #########
 versionfile=$install_dir"/version.txt"
 ftemp=$temp_dir"/ftemp"
-PID=`ps -ef | grep x64/factorio | grep -v grep | awk '{print $2}'`
+PID=`ps -ef | grep x64/factorio | grep -v grep | grep -v screen | awk '{print $2}'`
 
 ## Check if directories and files exist, if not assume fresh/new install 
 if [ ! -d $install_dir ] 
