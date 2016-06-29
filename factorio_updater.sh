@@ -29,7 +29,8 @@ retvalue=11
 ## Get current factorio version
 cur_ver=$(cat $versionfile)
 ## Get version from factorio webpage 
-got_version=$(wget -qO - https://www.factorio.com/download-headless/stable | awk 'BEGIN { findstr="(headless)";}{if (match($0, findstr)) {theend=RSTART ; {if (match($0,"download page</a>.</p><p></p><h3>")) {thestart=RSTART; thestartl=RLENGTH; theversion=substr($0,thestart+thestartl, theend-thestart-thestartl-2)}; printf("%s", theversion);exit;}}}')
+## got_version=$(wget -qO - https://www.factorio.com/download-headless/stable | awk 'BEGIN { findstr="(headless)";}{if (match($0, findstr)) {theend=RSTART ; {if (match($0,"download page</a>.</p><p></p><h3>")) {thestart=RSTART; thestartl=RLENGTH; theversion=substr($0,thestart+thestartl, theend-thestart-thestartl-2)}; printf("%s", theversion);exit;}}}')
+got_version=$(wget -qO - https://www.factorio.com/download-headless/stable | awk 'BEGIN { findstr="/headless/linux64";}{if (match($0, findstr)) {theend=RSTART ; {if (match($0,"/get-download/")) {thestart=RSTART; thestartl=RLENGTH; theversion=substr($0,thestart+thestartl, theend-thestart-thestartl-2)}; printf("%s", theversion);exit;}}}')
 ##slask=$(wget -qO - https://www.factorio.com/download-headless/stable)
 ##echo $slask
 echo "Found this version online "$got_version", have this version installed "$cur_ver
@@ -49,7 +50,7 @@ function CloseFactorio 	{
 
 
 
-if [ $cur_ver != $got_version ]
+if [ $cur_ver -ne $got_version ]
  then 
 	echo "Getting update "$got_version". Updating from version "$cur_ver
 	cd $temp_dir
