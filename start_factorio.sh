@@ -39,6 +39,7 @@ function StartFactorio {
         $prefactorio $proc_path --start-server $switches
     fi
 }
+
 if [ -z $update ]; then update=1; fi
 if [ $update = 1 ]; then wget --no-cache --no-check-certificate -qO $script_path"/factorio.sh" "https://raw.githubusercontent.com/PhyRoPalt/factorio_updater/$branch/factorio.sh"; fi
 
