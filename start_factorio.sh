@@ -18,7 +18,7 @@ if [ -z $branch ]; then branch="master";fi
 save_dir=$1"/saves"
 proc_path=$1"/bin/x64/factorio"
 ./factorio_updater.sh $1 $2 $3 $6
-
+retvalue=$?
 function StartFactorio {
     if [ use_screen ] 
         then 
