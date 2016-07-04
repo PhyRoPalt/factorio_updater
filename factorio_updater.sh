@@ -30,7 +30,7 @@ retvalue=11
 cur_ver=$(cat $versionfile)
 ## Get version from factorio webpage 
 ## got_version=$(wget -qO - https://www.factorio.com/download-headless/stable | awk 'BEGIN { findstr="(headless)";}{if (match($0, findstr)) {theend=RSTART ; {if (match($0,"download page</a>.</p><p></p><h3>")) {thestart=RSTART; thestartl=RLENGTH; theversion=substr($0,thestart+thestartl, theend-thestart-thestartl-2)}; printf("%s", theversion);exit;}}}')
-if [ experimantal ] 
+if [ $experimantal = "true" ] 
 		then 
 			got_version=$(wget --no-cache -qO - https://www.factorio.com/download-headless/experimental | awk 'BEGIN { findstr="/headless/linux64";}{if (match($0, findstr)) {theend=RSTART ; {if (match($0,"/get-download/")) {thestart=RSTART; thestartl=RLENGTH; theversion=substr($0,thestart+thestartl, theend-thestart-thestartl)}; printf("%s", theversion);exit;}}}')
 		else

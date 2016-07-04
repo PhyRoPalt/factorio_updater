@@ -21,7 +21,7 @@ proc_path=$1"/bin/x64/factorio"
 retvalue=$?
 function StartFactorio {
     echo "Use screen = "$use_screen
-    if [ ($use_screen) ] 
+    if [ $use_screen = "true" ] 
         then 
         echo "Using screen command when starting server"
         prefactorio="screen -mS factori_screen" 
