@@ -34,3 +34,8 @@ v.0.0.6
 
 v.0.0.7
     +Starting factorio to screen (factorio_screen)
+    *updated wget parts with --no-cache
+
+v.0.0.8
+    +Added possibilty to get experimental version
+    *changes to fatorio start with $switches
