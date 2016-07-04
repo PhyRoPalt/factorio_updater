@@ -1,14 +1,14 @@
 #!/bin/bash
-install_dir=$1
-temp_dir=$2
-script_path=$3
+install_dir="$1"
+temp_dir="$2"
+script_path="$3"
 update=$4
-branch=$5
+branch="$5"
 experimental=$6
-factorio_version=$7
-switches=$8
+factorio_version="$7"
+switches="$8"
 use_screen=$9
-echo "Start parameters:" $0
+echo "Start parameters:" "$@"
 
 if [ -z $install_dir ]; then echo "Install_dir not set. exiting"; exit -1;fi
 if [ -z $temp_dir ]; then echo "temp_dir not set. exiting"; exit -1;fi
