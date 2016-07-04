@@ -7,6 +7,7 @@ branch=$5
 experimental=$6
 factorio_version=$7
 switches=$8
+use_screen=$9
 if [ -z $install_dir ]; then echo "Install_dir not set. exiting"; exit -1;fi
 if [ -z $temp_dir ]; then echo "temp_dir not set. exiting"; exit -1;fi
 if [ -z $script_path ]; then echo "script_path not set. exiting"; exit -1;fi
@@ -17,15 +18,17 @@ proc_path=$1"/bin/x64/factorio"
 ./factorio_updater.sh $1 $2 $3 $6
 
 function StartFactorio {
+    if [ use_screen ] then; prefactorio="screen -mS factori_screen"; else prefactorio=""; fi
+
     if [ factorio_version = "0.12.35" ]
     then
         savefile1=`ls -ltr $save_dir | grep _autosave | grep -v grep | awk '{print $9}'`
         savefile=`echo $savefile1 | awk '{print $1}'`
         echo "Starting Factorio with savegame "$savefile
-        screen -mS factori_screen $proc_path --start-server $savefile
+         $prefactorio $proc_path --start-server $savefile
         else 
         echo "Starting Factorio"
-        screen -mS factori_screen $proc_path --start-server $switches
+        $prefactorio $proc_path --start-server $switches
     fi
 }
 if [ -z $update ]; then update=1; fi
