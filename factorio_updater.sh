@@ -2,7 +2,7 @@
 install_dir=$1
 temp_dir=$2
 script_path=$3
-
+experimental=$4
 ######### DO NOT CHANGE ANYTHING BELOW THIS LINE  #########
 versionfile=$install_dir"/version.txt"
 ftemp=$temp_dir"/ftemp"
@@ -30,7 +30,13 @@ retvalue=11
 cur_ver=$(cat $versionfile)
 ## Get version from factorio webpage 
 ## got_version=$(wget -qO - https://www.factorio.com/download-headless/stable | awk 'BEGIN { findstr="(headless)";}{if (match($0, findstr)) {theend=RSTART ; {if (match($0,"download page</a>.</p><p></p><h3>")) {thestart=RSTART; thestartl=RLENGTH; theversion=substr($0,thestart+thestartl, theend-thestart-thestartl-2)}; printf("%s", theversion);exit;}}}')
-got_version=$(wget --no-cache -qO - https://www.factorio.com/download-headless/stable | awk 'BEGIN { findstr="/headless/linux64";}{if (match($0, findstr)) {theend=RSTART ; {if (match($0,"/get-download/")) {thestart=RSTART; thestartl=RLENGTH; theversion=substr($0,thestart+thestartl, theend-thestart-thestartl)}; printf("%s", theversion);exit;}}}')
+if [ experimantal ] 
+		then 
+			got_version=$(wget --no-cache -qO - https://www.factorio.com/download-headless/experimental | awk 'BEGIN { findstr="/headless/linux64";}{if (match($0, findstr)) {theend=RSTART ; {if (match($0,"/get-download/")) {thestart=RSTART; thestartl=RLENGTH; theversion=substr($0,thestart+thestartl, theend-thestart-thestartl)}; printf("%s", theversion);exit;}}}')
+		else
+			got_version=$(wget --no-cache -qO - https://www.factorio.com/download-headless/stable | awk 'BEGIN { findstr="/headless/linux64";}{if (match($0, findstr)) {theend=RSTART ; {if (match($0,"/get-download/")) {thestart=RSTART; thestartl=RLENGTH; theversion=substr($0,thestart+thestartl, theend-thestart-thestartl)}; printf("%s", theversion);exit;}}}')
+fi
+			
 ##slask=$(wget -qO - https://www.factorio.com/download-headless/stable)
 ##echo $slask
 echo "Found this version online "$got_version", have this version installed "$cur_ver
