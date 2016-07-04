@@ -4,6 +4,7 @@ temp_dir=/home/steam/temp
 script_path=/home/steam/factorio_updater
 update=0
 switches="--start-server-load-latest --rcon-port 27019 --rcon-password dudde"
+use_screen=false
 # Use factorio stable or experimental ? (true=experimental false=stable)
 experimental=true
 ## script branch "dev" or "master"
@@ -29,4 +30,4 @@ if [ $version != $got_version ] || [ $branch = "dev" ]
         echo $got_version > $versionfile
 fi
 echo "Starting factorio updater"
-./start_factorio.sh $install_dir $temp_dir $script_path $update $branch $experimental $got_version $switches
+./start_factorio.sh $install_dir $temp_dir $script_path $update $branch $experimental $got_version $switches $use_screen
