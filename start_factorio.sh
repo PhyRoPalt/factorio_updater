@@ -8,8 +8,8 @@ experimental=$6
 factorio_version="$7"
 switches=${*:9}
 use_screen=$8
-echo "Start parameters:" "$@"
-echo "Switches: " $switches
+##echo "Start parameters:" "$@"
+##echo "Switches: "$switches
 if [ -z $install_dir ]; then echo "Install_dir not set. exiting"; exit -1;fi
 if [ -z $temp_dir ]; then echo "temp_dir not set. exiting"; exit -1;fi
 if [ -z $script_path ]; then echo "script_path not set. exiting"; exit -1;fi
@@ -21,7 +21,7 @@ proc_path=$1"/bin/x64/factorio"
 retvalue=$?
 function StartFactorio {
     echo "Use screen = "$use_screen
-    if [ $use_screen ] 
+    if [ $use_screen = true ] 
         then 
         echo "Using screen command when starting server"
         prefactorio="screen -mS factori_screen" 
