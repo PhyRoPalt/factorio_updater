@@ -6,7 +6,7 @@ update=$4
 branch="$5"
 experimental=$6
 factorio_version="$7"
-switches="$*:9"
+switches=${*:9}
 use_screen=$8
 echo "Start parameters:" "$@"
 echo "Switches: " $switches
