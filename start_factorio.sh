@@ -38,7 +38,7 @@ function StartFactorio {
          $prefactorio $proc_path --start-server $savefile
         else 
         echo "Starting Factorio"
-        $prefactorio $proc_path --start-server $switches
+        $prefactorio $proc_path $switches
     fi
 }
 
