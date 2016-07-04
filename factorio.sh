@@ -3,7 +3,7 @@ install_dir=/home/steam/factorio
 temp_dir=/home/steam/temp
 script_path=/home/steam/factorio_updater
 update=0
-switches="--start-server-load-latest --rcon-port 27019 --rcon-password slask"
+switches="--start-server -load-latest --rcon-port 27019 --rcon-password slask"
 use_screen="false"
 # Use factorio stable or experimental ? (true=experimental false=stable)
 experimental="true"
