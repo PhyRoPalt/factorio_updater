@@ -18,7 +18,7 @@ proc_path=$1"/bin/x64/factorio"
 retvalue=$?
 
 function StartFactorio {
-    if [ factorio_version = "0.12.35"]
+    if [ factorio_version = "0.12.35" ]
     then
         savefile1=`ls -ltr $save_dir | grep _autosave | grep -v grep | awk '{print $9}'`
         savefile=`echo $savefile1 | awk '{print $1}'`
