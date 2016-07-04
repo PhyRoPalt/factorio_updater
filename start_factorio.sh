@@ -8,6 +8,8 @@ experimental=$6
 factorio_version=$7
 switches=$8
 use_screen=$9
+echo "Start parameters:" $0
+
 if [ -z $install_dir ]; then echo "Install_dir not set. exiting"; exit -1;fi
 if [ -z $temp_dir ]; then echo "temp_dir not set. exiting"; exit -1;fi
 if [ -z $script_path ]; then echo "script_path not set. exiting"; exit -1;fi
