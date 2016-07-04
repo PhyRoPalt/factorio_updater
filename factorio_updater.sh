@@ -50,6 +50,7 @@ function CloseFactorio 	{
 		fi	
 		kill -15 $PID > /dev/null 2>&1
 		retvalue=$?
+		wait $PID
 		##echo "Killed process with returnvalue "$retvalue
 		## 0=OK 2=No process started -1=ERROR
 			}
