@@ -18,7 +18,13 @@ proc_path=$1"/bin/x64/factorio"
 ./factorio_updater.sh $1 $2 $3 $6
 
 function StartFactorio {
-    if [ use_screen ]; then prefactorio="screen -mS factori_screen"; else prefactorio=""; fi
+    if [ use_screen ] 
+        then 
+        echo "Using screen command when starting server"
+        prefactorio="screen -mS factori_screen" 
+        else 
+        prefactorio=""
+    fi
 
     if [ factorio_version = "0.12.35" ]
     then
