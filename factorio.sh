@@ -1,16 +1,8 @@
 #!/bin/bash
-install_dir=/home/steam/factorio
-temp_dir=/home/steam/temp
-script_path=/home/steam/factorio_updater
-update=0
-switches="--start-server-load-latest --rcon-port 27019 --rcon-password slask"
-use_screen=false
-# Use factorio stable or experimental ? (true=experimental false=stable)
-experimental=true
-## script branch "dev" or "master"
-branch="dev"
+source config.txt
 
 ## Please do not change anything below this line
+update=0
 versionfile=$script_path"/version.txt"
 got_version=$(wget --no-cache --no-check-certificate -qO - "https://raw.githubusercontent.com/PhyRoPalt/factorio_updater/$branch/version.txt")
 version=$(cat $versionfile)

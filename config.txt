@@ -1,0 +1,13 @@
+## Factorio Install directory
+install_dir=/home/steam/factorio
+## Temp directory (used for factorio updates)
+temp_dir=/home/steam/temp
+## Script path
+script_path=/home/steam/factorio_updater
+##Command line arguments sent to factorio
+switches="--start-server-load-latest --rcon-port 27019 --rcon-password slask"
+use_screen=false
+# Use factorio stable or experimental ? (true=experimental false=stable)
+experimental=true
+## script branch "dev" or "master"
+branch="dev"
