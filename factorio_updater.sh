@@ -50,8 +50,7 @@ function CloseFactorio 	{
 		fi	
 		kill -15 $PID > /dev/null 2>&1
 		retvalue=$?
-		tt=0
-		while ps agx | grep -w $PID | grep -vw grep > /dev/null;do sleep 1;tt=(($tt + 1)); echo "Waiting for factorio to close ($tt)"; done
+		tt=0;	while ps agx | grep -w $PID | grep -vw grep > /dev/null; do sleep 1;tt=$(($tt + 1)); echo "Waiting for factorio to close ($tt)"; done;
 		##wait $PID
 		##echo "Killed process with returnvalue "$retvalue
 		## 0=OK 2=No process started -1=ERROR
