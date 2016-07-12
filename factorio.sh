@@ -1,5 +1,7 @@
 #!/bin/bash
-source config.txt
+script_path="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
+source $script_path/config.txt
 
 ## Please do not change anything below this line
 cd $script_path
