@@ -58,7 +58,7 @@ function CloseFactorio 	{
 
 
 
-if [ "$cur_ver" != "$got_version" ]
+if [ "$cur_ver" < "$got_version" ]
  then 
 	echo "Getting update "$got_version". Updating from version "$cur_ver
 	cd $temp_dir
