@@ -98,7 +98,7 @@ if [ $retvalue = -1 ]
 		if [ -n $PID ]; then exit 1; echo "exit 1"; fi
 		else
 		echo "Assuming update was a success, celebrating with cake and icecream *yaaay*"
-		echo $got_version > $versionfile
+		##echo $got_version > $versionfile
 		exit 0
 	fi
 fi
