@@ -4,7 +4,7 @@ temp_dir=$2
 script_path=$3
 experimental=$4
 ######### DO NOT CHANGE ANYTHING BELOW THIS LINE  #########
-versionfile=$install_dir"/version.txt"
+versionfile=$install_dir"/factorio-current.log"
 ftemp=$temp_dir"/ftemp"
 PID=`ps -ef | grep x64/factorio | grep -v grep | grep -v screen | awk '{print $2}'`
 
@@ -27,7 +27,9 @@ fi
 ## Set standard returnvalue
 retvalue=11
 ## Get current factorio version
-cur_ver=$(cat $versionfile)
+##cur_ver=$(cat $versionfile)
+cur_ver=$(head -n 1 $versionfile | awk '{print $5}')
+
 ## Get version from factorio webpage 
 ## got_version=$(wget -qO - https://www.factorio.com/download-headless/stable | awk 'BEGIN { findstr="(headless)";}{if (match($0, findstr)) {theend=RSTART ; {if (match($0,"download page</a>.</p><p></p><h3>")) {thestart=RSTART; thestartl=RLENGTH; theversion=substr($0,thestart+thestartl, theend-thestart-thestartl-2)}; printf("%s", theversion);exit;}}}')
 if [ $experimental = true ] 
