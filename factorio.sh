@@ -6,7 +6,9 @@ source $script_path/config.txt
 ## Please do not change anything below this line
 cd $script_path
 update=0
-versionfile=$script_path"/version.txt"
+##versionfile=$script_path"/version.txt"
+versionfile=$(head -n 1 $install_dir"/factorio-current.log" | awk '{print $5}')
+
 got_version=$(wget --no-cache --no-check-certificate -qO - "https://raw.githubusercontent.com/PhyRoPalt/factorio_updater/$branch/version.txt")
 version=$(cat $versionfile)
 if [ $branch = "dev" ]; then echo "Using Dev branch, will force update of script.";fi 
