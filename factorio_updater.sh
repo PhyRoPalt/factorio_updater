@@ -57,10 +57,12 @@ function CloseFactorio 	{
 		##echo "Killed process with returnvalue "$retvalue
 		## 0=OK 2=No process started -1=ERROR
 			}
+## Remove "." from versions and get them to an integer .. 
+$got_version={got_version//./}
+$cur_ver={cur_ver//./}
 
 
-
-if [[ "$cur_ver" < "$got_version" ]]
+if [ "$cur_ver" -lt "$got_version" ]
  then 
 	echo "Getting update "$got_version". Updating from version "$cur_ver
 	cd $temp_dir
