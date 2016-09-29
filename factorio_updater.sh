@@ -58,11 +58,11 @@ function CloseFactorio 	{
 		## 0=OK 2=No process started -1=ERROR
 			}
 ## Remove "." from versions and get them to an integer .. 
-got_version=${got_version//./}
-cur_ver=${cur_ver//./}
+got_version2=${got_version//./}
+cur_ver2=${cur_ver//./}
 
 
-if [ "$cur_ver" -lt "$got_version" ]
+if [ "$cur_ver2" -lt "$got_version2" ]
  then 
 	echo "Getting update "$got_version". Updating from version "$cur_ver
 	cd $temp_dir
