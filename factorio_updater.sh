@@ -58,8 +58,8 @@ function CloseFactorio 	{
 		## 0=OK 2=No process started -1=ERROR
 			}
 ## Remove "." from versions and get them to an integer .. 
-got_version={got_version//./}
-cur_ver={cur_ver//./}
+got_version=${got_version//./}
+cur_ver=${cur_ver//./}
 
 
 if [ "$cur_ver" -lt "$got_version" ]
