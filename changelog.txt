@@ -39,3 +39,5 @@ v.0.0.7
 v.0.0.8
     +Added possibilty to get experimental version
     *changes to fatorio start with $switches
+    *made changes to version checking
+    

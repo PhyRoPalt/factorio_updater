@@ -57,9 +57,15 @@ function CloseFactorio 	{
 		##echo "Killed process with returnvalue "$retvalue
 		## 0=OK 2=No process started -1=ERROR
 			}
-## Remove "." from versions and get them to an integer .. 
+## Remove "." from versions and get them to an integer ..
+	
+
 got_version2=${got_version//./}
 cur_ver2=${cur_ver//./}
+
+while [ ${#got_version2} -lt ${#cur_ver2} ]; do
+	got_version2=$got_version2"0"
+done	
 
 
 if [ "$cur_ver2" -lt "$got_version2" ]
