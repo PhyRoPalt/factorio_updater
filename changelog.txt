@@ -5,9 +5,7 @@ Changelog for factorio update/start script by PhyRo (phyro@t4d.se)
     Various gramatical and spelling errors.
     No actual cake was hurt during the making of this script. enjoy
 
-    awk is needed ( apt-get install awk )
-    tar is needed ( apt-get install tar ) 
-    
+    script uses : screen, tar, awk
 
 v.0.0.1
     +Just starting factorio with latest save
@@ -27,4 +25,19 @@ v.0.0.5
     *Moved script from google drive to github
     *Updated script update part (factorio.sh, start_factorio.sh)
     
+v.0.0.6 
+    +added dev branch (if you are using dev branch, the script will update itself EVERY time it runs, so dont use it with crontab)
+    *updated factorio.sh & start_factorio.sh, now able to use dev branch
+    *added checks for missing paths script(start_factorio.sh) exiting if install_path, temp_dir or script path is not set in factorio.sh
+        Forgot to make that update in factorio.sh...duuh
+    Also forgot to update changelog.txt .. so tired ..
 
+v.0.0.7
+    +Starting factorio to screen (factorio_screen)
+    *updated wget parts with --no-cache
+
+v.0.0.8
+    +Added possibilty to get experimental version
+    *changes to fatorio start with $switches
+    *made changes to version checking
+    

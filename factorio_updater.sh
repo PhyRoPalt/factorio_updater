@@ -2,14 +2,11 @@
 install_dir=$1
 temp_dir=$2
 script_path=$3
-
-##install_dir=/home/steam/factorio
-##temp_dir=/home/steam/temp
-##script_path=/home/steam/factorio_script
+experimental=$4
 ######### DO NOT CHANGE ANYTHING BELOW THIS LINE  #########
-versionfile=$install_dir"/version.txt"
+versionfile=$install_dir"/factorio-current.log"
 ftemp=$temp_dir"/ftemp"
-PID=`ps -ef | grep x64/factorio | grep -v grep | awk '{print $2}'`
+PID=`ps -ef | grep x64/factorio | grep -v grep | grep -v screen | awk '{print $2}'`
 
 ## Check if directories and files exist, if not assume fresh/new install 
 if [ ! -d $install_dir ] 
@@ -30,12 +27,21 @@ fi
 ## Set standard returnvalue
 retvalue=11
 ## Get current factorio version
-cur_ver=$(cat $versionfile)
+##cur_ver=$(cat $versionfile)
+cur_ver=$(head -n 1 $versionfile | awk '{print $5}')
+
 ## Get version from factorio webpage 
-got_version=$(wget -qO - https://www.factorio.com/download-headless/stable | awk 'BEGIN { findstr="(headless)";}{if (match($0, findstr)) {theend=RSTART ; {if (match($0,"download page</a>.</p><p></p><h3>")) {thestart=RSTART; thestartl=RLENGTH; theversion=substr($0,thestart+thestartl, theend-thestart-thestartl-2)}; printf("%s", theversion);exit;}}}')
+## got_version=$(wget -qO - https://www.factorio.com/download-headless/stable | awk 'BEGIN { findstr="(headless)";}{if (match($0, findstr)) {theend=RSTART ; {if (match($0,"download page</a>.</p><p></p><h3>")) {thestart=RSTART; thestartl=RLENGTH; theversion=substr($0,thestart+thestartl, theend-thestart-thestartl-2)}; printf("%s", theversion);exit;}}}')
+if [ $experimental = true ] 
+		then 
+			got_version=$(wget --no-cache -qO - https://www.factorio.com/download-headless/experimental | awk 'BEGIN { findstr="/headless/linux64";}{if (match($0, findstr)) {theend=RSTART ; {if (match($0,"/get-download/")) {thestart=RSTART; thestartl=RLENGTH; theversion=substr($0,thestart+thestartl, theend-thestart-thestartl)}; printf("%s", theversion);exit;}}}')
+		else
+			got_version=$(wget --no-cache -qO - https://www.factorio.com/download-headless/stable | awk 'BEGIN { findstr="/headless/linux64";}{if (match($0, findstr)) {theend=RSTART ; {if (match($0,"/get-download/")) {thestart=RSTART; thestartl=RLENGTH; theversion=substr($0,thestart+thestartl, theend-thestart-thestartl)}; printf("%s", theversion);exit;}}}')
+fi
+			
 ##slask=$(wget -qO - https://www.factorio.com/download-headless/stable)
 ##echo $slask
-##echo $got_version
+echo "Found this version online "$got_version", have this version installed "$cur_ver
 
 ### Kill factorio process
 function CloseFactorio 	{	
@@ -46,13 +52,23 @@ function CloseFactorio 	{
 		fi	
 		kill -15 $PID > /dev/null 2>&1
 		retvalue=$?
+		tt=0;	while ps agx | grep -w $PID | grep -vw grep > /dev/null; do sleep 1;tt=$(($tt + 1)); echo "Waiting for factorio to close ($tt)"; done;
+		##wait $PID
 		##echo "Killed process with returnvalue "$retvalue
 		## 0=OK 2=No process started -1=ERROR
 			}
+## Remove "." from versions and get them to an integer ..
+	
+
+got_version2=${got_version//./}
+cur_ver2=${cur_ver//./}
+
+while [ ${#got_version2} -lt ${#cur_ver2} ]; do
+	got_version2=$got_version2"0"
+done	
 
 
-
-if [ $cur_ver != $got_version ]
+if [ "$cur_ver2" -lt "$got_version2" ]
  then 
 	echo "Getting update "$got_version". Updating from version "$cur_ver
 	cd $temp_dir
@@ -90,7 +106,7 @@ if [ $retvalue = -1 ]
 		if [ -n $PID ]; then exit 1; echo "exit 1"; fi
 		else
 		echo "Assuming update was a success, celebrating with cake and icecream *yaaay*"
-		echo $got_version > $versionfile
+		##echo $got_version > $versionfile
 		exit 0
 	fi
 fi
