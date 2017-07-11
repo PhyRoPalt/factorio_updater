@@ -6,7 +6,9 @@ source $script_path/config.txt
 ## Please do not change anything below this line
 cd $script_path
 update=0
+
 ##versionfile=$script_path"/version.txt"
+
 versionfile=$script_path"/version.txt"
 
 got_version=$(wget --no-cache --no-check-certificate -qO - "https://raw.githubusercontent.com/PhyRoPalt/factorio_updater/$branch/version.txt")
