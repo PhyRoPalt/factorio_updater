@@ -77,7 +77,7 @@ if [ "$cur_ver2" -lt "$got_version2" ]
 	wget -q https://www.factorio.com/get-download/$got_version/headless/linux64 -O factorio.tar.gz
 	echo "Unpacking."
 	tar -xzf factorio.tar.gz
-	rm factorio.tar.gz
+	## rm factorio.tar.gz
 	echo "Shutting down factorio"
 	CloseFactorio
 	
@@ -91,7 +91,7 @@ if [ "$cur_ver2" -lt "$got_version2" ]
 		fi
 	echo "Cleaning up"
 	cd $temp_dir
-	rm -rf $ftemp
+	## rm -rf $ftemp
 fi
 
 if [ $retvalue = -1 ]
