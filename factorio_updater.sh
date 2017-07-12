@@ -22,7 +22,7 @@ fi
 if [ ! -f $versionfile ]
 	then
 		echo "version file does not exist, creating."
-		echo "0.0.0" > $versionfile
+		echo "0 0 0 0 0.0.0" > $versionfile
 fi
 ## Set standard returnvalue
 retvalue=11
