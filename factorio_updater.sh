@@ -36,7 +36,7 @@ if [ $experimental = true ]
 		then 
 			got_version=$(wget --no-cache -qO - https://www.factorio.com/download-headless/experimental | awk 'BEGIN { findstr="/headless/linux64";}{if (match($0, findstr)) {theend=RSTART ; {if (match($0,"/get-download/")) {thestart=RSTART; thestartl=RLENGTH; theversion=substr($0,thestart+thestartl, theend-thestart-thestartl)}; printf("%s", theversion);exit;}}}')
 		else
-			got_version=$(wget --no-cache -qO - https://www.factorio.com/download-headless/stable | awk 'BEGIN { findstr="/headless/linux64";}{if (match($0, findstr)) {theend=RSTART ; {if (match($0,"/get-download/")) {thestart=RSTART; thestartl=RLENGTH; theversion=substr($0,thestart+thestartl, theend-thestart-thestartl)}; printf("%s", theversion);exit;}}}')
+			got_version=$(wget --no-cache -qO - https://www.factorio.com/download-headless | awk 'BEGIN { findstr="/headless/linux64";}{if (match($0, findstr)) {theend=RSTART ; {if (match($0,"/get-download/")) {thestart=RSTART; thestartl=RLENGTH; theversion=substr($0,thestart+thestartl, theend-thestart-thestartl)}; printf("%s", theversion);exit;}}}')
 fi
 			
 ##slask=$(wget -qO - https://www.factorio.com/download-headless/stable)
